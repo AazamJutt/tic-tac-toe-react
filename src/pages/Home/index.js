@@ -1,4 +1,3 @@
-import { Alert } from "bootstrap";
 import { Fireworks } from "fireworks/lib/react";
 import React, { useEffect, useState } from "react";
 import Cell from "../../components/Cell";
@@ -36,6 +35,8 @@ export default function Home() {
   function checkWin() {
     if (
       (grid[0] === 1 && grid[1] === 1 && grid[2] === 1) ||
+      (grid[3] === 1 && grid[4] === 1 && grid[5] === 1) ||
+      (grid[6] === 1 && grid[7] === 1 && grid[8] === 1) ||
       (grid[0] === 1 && grid[3] === 1 && grid[6] === 1) ||
       (grid[1] === 1 && grid[4] === 1 && grid[7] === 1) ||
       (grid[2] === 1 && grid[5] === 1 && grid[8] === 1) ||
@@ -46,6 +47,8 @@ export default function Home() {
     }
     if (
       (grid[0] === 2 && grid[1] === 2 && grid[2] === 2) ||
+      (grid[3] === 2 && grid[4] === 2 && grid[5] === 2) ||
+      (grid[6] === 2 && grid[7] === 2 && grid[8] === 2) ||
       (grid[0] === 2 && grid[3] === 2 && grid[6] === 2) ||
       (grid[1] === 2 && grid[4] === 2 && grid[7] === 2) ||
       (grid[2] === 2 && grid[5] === 2 && grid[8] === 2) ||
@@ -72,85 +75,47 @@ export default function Home() {
     <div
       className={
         styles.Main +
-        " d-flex flex-column justify-content-center align-items-center text-center"
+        " bg-dark d-flex flex-column justify-content-center align-items-center text-white text-center"
       }
     >
       {won && (
         <>
           <Fireworks {...fxProps} />
-          <h1>{`Player ${checkWin()} won!!`}</h1>
+          <div
+            className={
+              styles.WinMessage +
+              " text-center fw-bold position-absolute font-monospace"
+            }
+          >{`Player ${checkWin()} won !!`}</div>
         </>
       )}
-      <div className={styles.Container + " justify-content-center"}>
-        <div>
-          <Cell
-            turn={turn}
-            index={0}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={1}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={2}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-        </div>
-        <div>
-          <Cell
-            turn={turn}
-            index={3}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={4}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={5}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-        </div>
-        <div>
-          <Cell
-            turn={turn}
-            index={6}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={7}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-          <Cell
-            turn={turn}
-            index={8}
-            clear={clear}
-            setClear={setClear}
-            handleTurn={handleTurn}
-          />
-        </div>
+      <div className={styles.Banner + " shadow-xl fixed-top p-3 fs-4"}>Tic Tac Toe</div>
+      <div className={styles.Container + " mt-5 justify-content-center"}>
+        {[0, 1, 2].map((item, index) => (
+          <div key={item}>
+            <Cell
+              turn={turn}
+              index={item * 3}
+              clear={clear}
+              setClear={setClear}
+              handleTurn={handleTurn}
+            />
+            <Cell
+              turn={turn}
+              index={item * 3 + 1}
+              clear={clear}
+              setClear={setClear}
+              handleTurn={handleTurn}
+            />
+            <Cell
+              turn={turn}
+              index={item * 3 + 2}
+              clear={clear}
+              setClear={setClear}
+              handleTurn={handleTurn}
+            />
+          </div>
+        ))}
       </div>
       <div className="btn btn-danger btn-lg m-3" onClick={clearAll}>
         Reset

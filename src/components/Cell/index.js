@@ -12,15 +12,15 @@ export default function Cell(props) {
     }
   }
   function getColor() {
-    if (localState === 'x-lg') return "info";
+    if (localState === 'x-lg') return "primary";
     else if (localState === 'circle') return "success";
-    else return "warning";
+    else return "secondary";
   }
   useEffect(() => {
     setlocalState('');
     setMarked(false);
     props.setClear(false);
-  }, [props.clear,true])
+  }, [props.clear])
   
   return (
     <div

@@ -1,6 +1,17 @@
-.Main{
-    height:100vh;
+.Main {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
-.Container{
-    width: 420px;
+.Container {
+  width: 420px;
+}
+.WinMessage {
+  font-size: 4rem;
+}
+.Banner{
+    background-color: rgba(98, 98, 98, 0.205);
 }
