@@ -16,12 +16,12 @@ export default function Home() {
     colors: ["#cc3333", "#4CAF50", "#81C784"],
     calc: (props, i) => ({
       ...props,
-      x: (i+1) * (window.innerWidth / 4) - (i) * 50,
+      x: (i + 1) * (window.innerWidth / 4) - i * 50,
       y: 200 + Math.random() * 100 - 50 + (i === 2 ? -80 : 0),
     }),
   };
   function clearAll() {
-    setTurn('X');
+    setTurn("X");
     setwon(false);
     setGrid([0, 0, 0, 0, 0, 0, 0, 0, 0]);
     setClear(true);
@@ -35,22 +35,22 @@ export default function Home() {
 
   function checkWin() {
     if (
-      (grid[0] == 1 && grid[1] == 1 && grid[2] == 1) ||
-      (grid[0] == 1 && grid[3] == 1 && grid[6] == 1) ||
-      (grid[1] == 1 && grid[4] == 1 && grid[7] == 1) ||
-      (grid[2] == 1 && grid[5] == 1 && grid[8] == 1) ||
-      (grid[0] == 1 && grid[4] == 1 && grid[8] == 1) ||
-      (grid[2] == 1 && grid[4] == 1 && grid[6] == 1)
+      (grid[0] === 1 && grid[1] === 1 && grid[2] === 1) ||
+      (grid[0] === 1 && grid[3] === 1 && grid[6] === 1) ||
+      (grid[1] === 1 && grid[4] === 1 && grid[7] === 1) ||
+      (grid[2] === 1 && grid[5] === 1 && grid[8] === 1) ||
+      (grid[0] === 1 && grid[4] === 1 && grid[8] === 1) ||
+      (grid[2] === 1 && grid[4] === 1 && grid[6] === 1)
     ) {
       return 1;
     }
     if (
-      (grid[0] == 2 && grid[1] == 2 && grid[2] == 2) ||
-      (grid[0] == 2 && grid[3] == 2 && grid[6] == 2) ||
-      (grid[1] == 2 && grid[4] == 2 && grid[7] == 2) ||
-      (grid[2] == 2 && grid[5] == 2 && grid[8] == 2) ||
-      (grid[0] == 2 && grid[4] == 2 && grid[8] == 2) ||
-      (grid[2] == 2 && grid[4] == 2 && grid[6] == 2)
+      (grid[0] === 2 && grid[1] === 2 && grid[2] === 2) ||
+      (grid[0] === 2 && grid[3] === 2 && grid[6] === 2) ||
+      (grid[1] === 2 && grid[4] === 2 && grid[7] === 2) ||
+      (grid[2] === 2 && grid[5] === 2 && grid[8] === 2) ||
+      (grid[0] === 2 && grid[4] === 2 && grid[8] === 2) ||
+      (grid[2] === 2 && grid[4] === 2 && grid[6] === 2)
     ) {
       return 2;
     }
