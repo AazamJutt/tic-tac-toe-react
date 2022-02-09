@@ -30,7 +30,7 @@ export default function Home() {
     if (winner === 1 || winner === 2) {
       setwon(true);
     }
-  }, [turn]);
+  }, [turn,checkWin]);
 
   function checkWin() {
     if (
@@ -89,8 +89,8 @@ export default function Home() {
           >{`Player ${checkWin()} won !!`}</div>
         </>
       )}
-      <div className={styles.Banner + " shadow-xl fixed-top p-3 fs-4"}>Tic Tac Toe</div>
-      <div className={styles.Container + " mt-5 justify-content-center"}>
+      <div className={"text-uppercase font-monospace shadow-xl p-3 fs-1"}>Tic Tac Toe</div>
+      <div className={styles.Container + " justify-content-center"}>
         {[0, 1, 2].map((item, index) => (
           <div key={item}>
             <Cell

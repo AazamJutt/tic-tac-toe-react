@@ -20,12 +20,12 @@ export default function Cell(props) {
     setlocalState('');
     setMarked(false);
     props.setClear(false);
-  }, [props.clear])
+  }, [props.clear,true])
   
   return (
     <div
       className={
-        styles.Cell+` btn btn-${getColor()} border border-dark rounded-0  p-0 m-0`
+        styles.Cell+` btn btn-${getColor()} border-3 border-dark rounded-0  p-0 m-0`
       }
     >
       <div
